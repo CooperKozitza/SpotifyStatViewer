@@ -19,9 +19,11 @@ export const accessTokenError = (payload) => ({
 export const authorize = () => (
     async (dispatch, getState) => {
         dispatch(getAccessToken());
-        var response = await axios({
-            method: 'get',
-            url: '/api/auth/login'
+        var response = await axios.get('/api/auth/login', {
+            data: {},
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
         }).then((response) => {
             console.log(response);
             dispatch(setAccessToken(response))

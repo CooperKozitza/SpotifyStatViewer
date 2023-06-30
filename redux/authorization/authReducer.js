@@ -21,9 +21,9 @@ const authReducer = (state = initialState, action) => {
         case SET_TOKEN:
             return ({
                 loading: false,
-                authToken: action.payload.authToken,
-                refreshToken: action.payload.refreshToken,
-                expiresIn: action.payload.expiresIn,
+                authToken: action.payload.auth_token,
+                refreshToken: action.payload.refresh_token,
+                expiresIn: action.payload.expires_in,
                 errorMsg: ''
             })
         case TOKEN_ERROR:

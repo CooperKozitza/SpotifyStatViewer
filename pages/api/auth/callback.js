@@ -13,7 +13,8 @@ const callback = async (req, res) => {
     axios.post('https://accounts.spotify.com/api/token', params, {
         headers: {
             'Authorization': 'Basic ' + (new Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64')),
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin': '*'
         }
     })
     .then(response => {
