@@ -1,6 +1,6 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import { REDIRECT_URI, CLIENT_ID, CLIENT_SECRET } from "@/client/client";
 import axios from "axios";
-import { Yaldevi } from "next/font/google";
 
 const callback = async (req, res) => {
     let code = req.query.code || null;

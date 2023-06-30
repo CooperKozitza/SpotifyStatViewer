@@ -1,0 +1,55 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    background-size: cover;
+    position: relative; /* Ensure this is relative so the mosaic positions relative to this */
+}
+
+.herocard {
+    padding: 50px;
+    padding-bottom: 30px;
+    width: 80%;
+    max-width: 800px;
+}
+
+.title {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 40px;
+}
+
+.mosaic {
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    width: 120%;
+    height: 120%;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    display: flex;
+    flex-wrap: wrap;
+    filter: blur(5px);
+}
+
+.albumCover {
+    flex: 1 0 20%;
+    height: 20%;
+    width: 20%;
+    background-size: cover;
+}
+  
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}

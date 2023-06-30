@@ -1,9 +1,18 @@
 import { SCOPE, CLIENT_ID, REDIRECT_URI } from "@/client/client"
 import querystring from "querystring"
+import Cors from 'cors'
+import { runMiddleware } from "../utils/runMiddleware"
 
-const login = async (req, res) => {
-    let state = "thequickbrownfoxjumpedoverthelazydog";
+const cors = Cors({
+    origin: '*',
+    methods: ['GET', 'HEAD', 'OPTIONS']
+})
 
+const login = async (req , res) => {
+    await runMiddleware(req, res, cors)
+    let state = "-";
+
+    res.setHeader('Access-Control-Allow-Origin', '*')
     res.redirect("https://accounts.spotify.com/authorize?" +
         querystring.stringify({
             response_type: "code",
