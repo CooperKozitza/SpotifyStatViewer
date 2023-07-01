@@ -16,22 +16,24 @@ const Dashboard = () => {
     const router = useRouter(); 
 
     useEffect(() => {
-        if (!user.loggedIn) {
-            const qs = querystring.parse(router.asPath.split('?')[1])
-            if (!qs)
-                router.push('/api/auth/login')
-            dispatch(setAccessToken(qs))
+        if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+            if (!user.loggedIn) {
+                const qs = querystring.parse(router.asPath.split('?')[1])
+                if (!qs)
+                    router.push('/api/auth/login')
+                dispatch(setAccessToken(qs))
 
-            dispatch(login())
+                dispatch(login())
+            }
+            if (recents.loading == false && recents.items.length == 0)
+                dispatch(getRecentlyPlayedTracks())
         }
-        if (recents.loading == false && recents.items.length == 0)
-            dispatch(getRecentlyPlayedTracks())
-    }, []);
+    }, [dispatch, router, user.loggedIn, recents.loading, recents.items.length]);
 
     return (
         <Container>
             <Container className={styles.profile + ' glass'} >
-                <Image fluid src={user.avatar.url} className={styles.avatar} />
+                <Image fluid src={user.avatar.url} className={styles.avatar} alt="profile picture"/>
                 <Container className="glass px-2" style={{marginRight: '10px'}}>
                     <h3>{user.displayName || 'No Username Found'}</h3>
                     <p className='text-muted'>{user.email || 'no email found'}</p>
@@ -44,14 +46,14 @@ const Dashboard = () => {
                 {recents.loading ? <Spinner></Spinner> : recents.items.map((item, index) => (
                     <Row key={index} className={styles.track + ' glass'} >
                         <Col xs={2} className="px-0">
-                            <Image fluid src={item.track.album.images[0].url} className={styles.albumCover} />
+                            <Image fluid src={item.track.album.images[0].url} className={styles.albumCover} alt="album art"/>
                         </Col>
                         <Col xs={5}>
                             {item.track.name}
                         </Col>
                         <Col xs={5}>
-                            {item.track.artists.map((artist) => (
-                                <Row>
+                            {item.track.artists.map((artist, index) => (
+                                <Row key={index}>
                                     <a href={artist.external_urls.spotify}>{artist.name}</a>
                                 </Row>
                             ))}

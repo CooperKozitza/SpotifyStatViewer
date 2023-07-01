@@ -1,8 +1,8 @@
 import React from "react";
 import { Provider } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import store from "./store";
-import RootLayout from "./layout";
+import store from "../app/store";
+import RootLayout from "../app/layout";
 
 export const metadata = {
   title: 'Create Next App',

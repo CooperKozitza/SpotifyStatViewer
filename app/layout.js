@@ -3,6 +3,9 @@ import Navigation from '@/components/navigation'
 import { Container, Row } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({subsets: ['latin']})
 
 export default function RootLayout({ children }) {
 	return (

@@ -11,7 +11,7 @@ const ProfilePicture = () => {
 
     if (user.loggedIn) {
         return (
-            <a onClick={() => router.push('/dashboard')}><Image fluid className={styles.avatar} src={user.avatar.url} /></a>
+            <a onClick={() => router.push('/dashboard')}><Image fluid className={styles.avatar} src={user.avatar.url} alt="profile picture"/></a>
         )
     }
 
