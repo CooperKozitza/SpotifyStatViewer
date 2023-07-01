@@ -8,14 +8,12 @@ Spotify Stat Viewer is a Next.js web application that allows users to view their
 ## Getting Started
 1. Clone the repository to your local machine.
 2. Install the required dependencies using `npm install`.
-3. Create the directory `./client` and the file `client.js` within.
+3. Create the file `.env.local` in the root directory.
     - Define the following values from the Spotify developer dashboard...
    
         ```javascript
-        export const CLIENT_ID = "client_id"
-        export const CLIENT_SECRET = "client_secret"
-        export const SCOPE = "user-read-recently-played user-read-email user-top-read"
-        export const REDIRECT_URI = "http://localhost:3000/api/auth/callback"
+        CLIENT_ID = "client_id"
+        CLIENT_SECRET = "client_secret"
         ```
         
 5. Start the development server by running `npm run dev`, `yarn dev`, or `pnpm dev​`.
