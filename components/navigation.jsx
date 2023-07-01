@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { useRouter } from 'next/router'
 import LoginButton from "./login";
 import { Container } from "react-bootstrap";
+import ProfilePicture from "./profile";
 
 const Navigation = () => {
     const router = useRouter();
@@ -21,7 +22,7 @@ const Navigation = () => {
                             <Nav.Link onClick={() => router.push("/top-songs")}>Top Songs</Nav.Link>
                         </Nav>
                     </Container>
-                    <LoginButton>Login</LoginButton>
+                    <ProfilePicture></ProfilePicture>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
