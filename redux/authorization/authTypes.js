@@ -1,4 +1,3 @@
 export const SET_TOKEN = "REQUEST_AUTH"
-export const GET_TOKEN = "REQUEST_ACCESS"
 export const TOKEN_ERROR = "TOKEN_ERROR"
 export const REQUEST_REFRESH = "REQUEST_ACCESS"

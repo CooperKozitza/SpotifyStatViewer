@@ -10,18 +10,10 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_TOKEN:
-            return ({
-                loading: true,
-                authToken: '',
-                refreshToken: '',
-                expiresIn: 0,
-                errorMsg: ''
-            });
         case SET_TOKEN:
             return ({
                 loading: false,
-                authToken: action.payload.auth_token,
+                accessToken: action.payload.access_token,
                 refreshToken: action.payload.refresh_token,
                 expiresIn: action.payload.expires_in,
                 errorMsg: ''

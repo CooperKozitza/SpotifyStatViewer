@@ -6,14 +6,15 @@ export const login = () => (
     (dispatch, getState) => {
         axios.get('https://api.spotify.com/v1/me', {
                 headers: {
-                    'Authorization': 'Bearer ' + getState.auth.authToken
+                    'Authorization': 'Bearer ' + getState().auth.accessToken
                 }
             }
-        ).then(response => response.json()).then(response => {
+        ).then(response => {
+            console.log(response);
             dispatch(setUser({  
-                displayName: response.display_name,
-                avatar: response.images[0] | null,
-                email: response.email
+                displayName: response.data.display_name,
+                avatar: response.data.images[0],
+                email: response.data.email
             }))
         }).catch(error => {
             dispatch(setUserError(error))

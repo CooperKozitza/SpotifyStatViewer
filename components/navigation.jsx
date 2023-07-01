@@ -8,21 +8,17 @@ import { Container } from "react-bootstrap";
 const Navigation = () => {
     const router = useRouter();
 
-    const navigateTo = (path) => {
-        router.push(path);
-    }
-
     return (
-        <Navbar bg="light" variant="dark" expand="lg" className="glass" fixed="top">
+        <Navbar bg="dark" variant="dark" expand="lg" >
             <Container>
-                <Navbar.Brand onClick={() => navigateTo("/")}>Spotify Stat Viewer</Navbar.Brand>
+                <Navbar.Brand onClick={() => router.push("/")}>Spotify Stat Viewer</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Container>
                         <Nav className="mr-auto d-lg-flex align-items-center">
-                            <Nav.Link onClick={() => navigateTo("/top-albums")}>Top Albums</Nav.Link>
-                            <Nav.Link onClick={() => navigateTo("/top-artists")}>Top Artists</Nav.Link>
-                            <Nav.Link onClick={() => navigateTo("/top-songs")}>Top Songs</Nav.Link>
+                            <Nav.Link onClick={() => router.push("/top-albums")}>Top Albums</Nav.Link>
+                            <Nav.Link onClick={() => router.push("/top-artists")}>Top Artists</Nav.Link>
+                            <Nav.Link onClick={() => router.push("/top-songs")}>Top Songs</Nav.Link>
                         </Nav>
                     </Container>
                     <LoginButton>Login</LoginButton>

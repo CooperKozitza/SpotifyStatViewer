@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import { REDIRECT_URI, CLIENT_ID, CLIENT_SECRET } from "@/client/client";
 import axios from "axios";
+import querystring from "querystring"
 
 const callback = async (req, res) => {
     let code = req.query.code || null;
@@ -18,7 +18,8 @@ const callback = async (req, res) => {
         }
     })
     .then(response => {
-        res.status(200).send(response.data);
+        res.status(200)
+            .redirect('/dashboard?' + querystring.stringify(response.data))
     })
     .catch(error => {
         res.status(500).send(error);
