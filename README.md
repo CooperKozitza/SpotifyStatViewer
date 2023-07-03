@@ -12,8 +12,10 @@ Spotify Stat Viewer is a Next.js web application that allows users to view their
     - Define the following values from the Spotify developer dashboard...
    
         ```javascript
-        CLIENT_ID = "client_id"
-        CLIENT_SECRET = "client_secret"
+        CLIENT_ID="client_id"
+        CLIENT_SECRET="client_secret"
+        SCOPE="user-read-email user-read-recently-played user-top-read"
+        REDIRECT_URI="localhost:3000/api/auth/callback"
         ```
         
 5. Start the development server by running `npm run dev`, `yarn dev`, or `pnpm dev​`.
