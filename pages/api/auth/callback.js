@@ -1,4 +1,3 @@
-import { REDIRECT_URI, CLIENT_ID, CLIENT_SECRET } from "@/client/client";
 import axios from "axios";
 import querystring from "querystring"
 
@@ -7,12 +6,12 @@ const callback = async (req, res) => {
 
     const params = new URLSearchParams();
     params.append('code', code);
-    params.append('redirect_uri', REDIRECT_URI);
+    params.append('redirect_uri', process.env.REDIRECT_URI);
     params.append('grant_type', 'authorization_code');
 
     axios.post('https://accounts.spotify.com/api/token', params, {
         headers: {
-            'Authorization': 'Basic ' + (new Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64')),
+            'Authorization': 'Basic ' + (new Buffer.from(process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET).toString('base64')),
             'Content-Type': 'application/x-www-form-urlencoded',
             'Access-Control-Allow-Origin': '*'
         }

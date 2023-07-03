@@ -1,4 +1,4 @@
-const { GET_TOKEN, SET_TOKEN, TOKEN_ERROR } = require("./authTypes")
+const { GET_TOKEN, SET_TOKEN, TOKEN_ERROR, LOGOUT_AUTH } = require("./authTypes")
 
 const initialState = {
     loading: false,
@@ -24,6 +24,8 @@ const authReducer = (state = initialState, action) => {
                 loading: false,
                 errorMsg: action.payload.errorMsg
             })
+        case LOGOUT_AUTH:
+            return initialState
         default:
             return state
     }

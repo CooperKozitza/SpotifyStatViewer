@@ -1,3 +1,4 @@
+import artistsReducer from "@/redux/artists/artistsReducer"
 import authReducer from "@/redux/authorization/authReducer"
 import recentsReducer from "@/redux/recents/recentsReducer"
 import userReducer from "@/redux/user/userReducer"
@@ -7,6 +8,7 @@ export default configureStore({
     reducer: {
         auth: authReducer,
         user: userReducer,
-        recents: recentsReducer
+        recents: recentsReducer,
+        artists: artistsReducer
     }
 })

@@ -1,17 +1,18 @@
 import { login } from '@/redux/user/userActions';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
-import { Container, Row, Col, Spinner, Image, Card } from 'react-bootstrap'
+import { Container, Row, Col, Spinner, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import querystring from "querystring";
 import { setAccessToken } from '@/redux/authorization/authActions';
-import { getRecentlyPlayedTracks } from '@/redux/recents/recentsActions';
 import styles from './dashboard.module.css';
+import GenreGraph from '@/components/genreGraph';
+import RecentlyPlayed from '@/components/recentlyPlayed';
+import LogoutButton from '@/components/logout';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.user)
-    const recents = useSelector(state => state.recents)
     
     const router = useRouter(); 
 
@@ -22,45 +23,45 @@ const Dashboard = () => {
                 if (!qs)
                     router.push('/api/auth/login')
                 dispatch(setAccessToken(qs))
-
                 dispatch(login())
+
+                router.push('/dashboard')
             }
-            if (recents.loading == false && recents.items.length == 0)
-                dispatch(getRecentlyPlayedTracks())
         }
-    }, [dispatch, router, user.loggedIn, recents.loading, recents.items.length]);
+    }, []);
 
     return (
         <Container>
-            <Container className={styles.profile + ' glass'} >
-                <Image fluid src={user.avatar.url} className={styles.avatar} alt="profile picture"/>
-                <Container className="glass px-2" style={{marginRight: '10px'}}>
-                    <h3>{user.displayName || 'No Username Found'}</h3>
-                    <p className='text-muted'>{user.email || 'no email found'}</p>
-                </Container>
-            </Container>
-            <Container className={styles.recents + ' glass'}>
-                <Row className={styles.recentsHeader}>
-                    <h3>Recently Played</h3>
-                </Row>
-                {recents.loading ? <Spinner></Spinner> : recents.items.map((item, index) => (
-                    <Row key={index} className={styles.track + ' glass'} >
-                        <Col xs={2} className="px-0">
-                            <Image fluid src={item.track.album.images[0].url} className={styles.albumCover} alt="album art"/>
-                        </Col>
-                        <Col xs={5}>
-                            {item.track.name}
-                        </Col>
-                        <Col xs={5}>
-                            {item.track.artists.map((artist, index) => (
-                                <Row key={index}>
-                                    <a href={artist.external_urls.spotify}>{artist.name}</a>
+            <Row className="g-4">
+                <Col md={8}>
+                    {user.loggedIn ?
+                        <Card style={{height: '100%'}}>  
+                            <Card.Header>Your Profile:</Card.Header>
+                            <Card.Body className="d-flex align-items-center flex-column">
+                                <Card.Img src={user.user.images[0].url} className={styles.avatar} />
+                                <Card.Title>{user.user.display_name || 'No Username Found'}</Card.Title>
+                                <Card.Subtitle>
+                                    <p className="text-muted">{user.user.email || 'No Email Found'}</p>
+                                </Card.Subtitle>
+                                <Row>
+                                    <Col>
+                                        <b>Followers: </b>{user.user.followers.total}
+                                    </Col>
                                 </Row>
-                            ))}
-                        </Col>
-                    </Row>
-                ))}
-            </Container>
+                            </Card.Body>
+                            <Card.Footer>
+                                <LogoutButton />
+                            </Card.Footer>
+                        </Card>
+                    : <Spinner />}
+                </Col>
+                <Col md={4}>
+                    <GenreGraph />
+                </Col>
+                <Col>
+                    <RecentlyPlayed />
+                </Col>
+            </Row>
         </Container>
     )
 }

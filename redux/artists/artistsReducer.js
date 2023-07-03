@@ -1,26 +1,24 @@
-// The recently played tracks for the logged in user
-
-const { GET_RECENTS, SET_RECENTS, SET_RECENTS_ERROR } = require("./recentsTypes")
+const { GET_ARTISTS, SET_ARTISTS, SET_ARTISTS_ERROR } = require("./artistsTypes")
 
 const initialState = {
     loading: false,
     items: [],
-    errorMsg : ''
+    errorMsg: ''
 }
 
-const recentsReducer = (state = initialState, action) => {
+const artistsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_RECENTS:
+        case GET_ARTISTS:
             return ({
                 ...initialState,
                 loading: true
             })
-        case SET_RECENTS:
+        case SET_ARTISTS:
             return ({
                 ...initialState,
                 items: action.payload
             })
-        case SET_RECENTS_ERROR:
+        case SET_ARTISTS_ERROR:
             return ({
                 ...state,
                 loading: false,
@@ -30,4 +28,4 @@ const recentsReducer = (state = initialState, action) => {
     }
 }
 
-export default recentsReducer
+export default artistsReducer;

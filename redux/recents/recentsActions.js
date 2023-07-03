@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { GET_RECENTS, SET_RECENTS, SET_RECENTS_ERROR } from './recentsTypes'
 
-export const getRecentlyPlayedTracks = () => (
+export const getRecentlyPlayedTracksForUser = () => (
     (dispatch, getState) => {
         if (!getState().user.loggedIn)
             dispatch(setRecentsError('User Not Logged In'))

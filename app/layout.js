@@ -12,8 +12,8 @@ export default function RootLayout({ children }) {
 		<html>
 			<body className={inter.className}>
 				<Navigation />
-				<Container className="container" style={{minHeight: '90vh'}}>
-					<Row>
+				<Container className="container" style={{minHeight: '90vh', paddingTop: '60px'}}>
+					<Row style={{margin: '20px 0'}}>
 						{children}
 					</Row>
 				</Container>

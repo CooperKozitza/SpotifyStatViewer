@@ -4,13 +4,8 @@ const { SET_USER, SET_USER_ERROR, LOGOUT_USER } = require("./userTypes")
 const initialState = {
     loggedIn: false,
     displayName: '',
-    avatar: {
-        url: '',
-        width: 0,
-        height: 0
-    },
-    email: '',
-    error: null
+    user: {},
+    error: ''
 }
 
 const userReducer = (state = initialState, action) => {
@@ -18,20 +13,16 @@ const userReducer = (state = initialState, action) => {
         case SET_USER:
             return ({
                 loggedIn: true,
-                displayName: action.payload.displayName,
-                avatar: action.payload.avatar,
-                email: action.payload.email,
-                error: null
+                user: action.payload,
+                error: ''
             })
         case SET_USER_ERROR:
             return ({
                 ...state,
-                error: action.payload.error
+                error: action.payload
             })
         case LOGOUT_USER:
-            return ({
-                initialState
-            })
+            return initialState
         default: return state
     }
 }

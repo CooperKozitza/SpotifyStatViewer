@@ -1,0 +1,3 @@
+export const GET_ARTISTS = 'GET_ARTISTS'
+export const SET_ARTISTS = 'SET_ARTISTS'
+export const SET_ARTISTS_ERROR = 'SET_ARTISTS_ERROR'
