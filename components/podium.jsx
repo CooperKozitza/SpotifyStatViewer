@@ -8,7 +8,7 @@ const Podium = (props) => {
 
     useEffect(() => {
         const handleResize = () => {
-            setHorizontalView(window.innerWidth < 576);
+            setHorizontalView(window.innerWidth < 450);
         };
     
         window.addEventListener('resize', handleResize);
