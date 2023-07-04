@@ -1,6 +1,6 @@
 import { getArtistsForUser } from "@/redux/artists/artistsActions"
 import { useEffect } from "react"
-import { Card, Col, ListGroup, ProgressBar, Row, Spinner } from "react-bootstrap"
+import { Card, Col, ListGroup, OverlayTrigger, ProgressBar, Row, Spinner, Tooltip } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 
 const GenreGraph = () => {
@@ -58,13 +58,22 @@ const GenreGraph = () => {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col>
-                                    <ProgressBar
-                                        now={genre.count / (totalGenreCount || 1) * 100}
-                                        min={0}
-                                        max={100}
-                                    />
-                                </Col>
+                                <OverlayTrigger
+                                    placement="top"
+                                    overlay={
+                                        <Tooltip id={`tooltip-${index}`}>
+                                        {`${(genre.count / (totalGenreCount || 1) * 100).toFixed(0)}%`}
+                                        </Tooltip>
+                                    }
+                                >
+                                    <Col>
+                                        <ProgressBar
+                                            now={genre.count / (totalGenreCount || 1) * 100}
+                                            min={0}
+                                            max={100}
+                                        />
+                                    </Col>
+                                </OverlayTrigger>
                             </Row>
                         </ListGroup.Item>
                     ))}

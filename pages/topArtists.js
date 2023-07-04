@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { Col, Container, Row, Spinner, Image, Card, Nav, Tab, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Podium from "@/components/podium";
+import TopItemsCard from "@/components/topItemsCard";
+import { getArtistsForUser } from "@/redux/artists/artistsActions";
 
 const TopArtists = () => {
     const dispatch = useDispatch();
@@ -29,50 +31,8 @@ const TopArtists = () => {
                 </Col>
             </Row>
             <Podium items={artists.items} />
-            <Container>
-                <Card>
-                    <Tab.Container>
-                        <Card.Header>
-                        <Nav variant="tabs">
-                            <Nav.Item>
-                                <Nav.Link eventKey="shortTerm">Short Term</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="medium">Medium</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="long">Long</Nav.Link>
-                            </Nav.Item>
-                        </Nav>
-                        </Card.Header>
-                        <Card.Body>
-                            <Tab.Content>
-                                <Tab.Pane eventKey="shortTerm">
-                                    <ListGroup>
-                                        <ListGroup.Item>Example entry 1 (Short Term)</ListGroup.Item>
-                                        <ListGroup.Item>Example entry 2 (Short Term)</ListGroup.Item>
-                                        <ListGroup.Item>Example entry 3 (Short Term)</ListGroup.Item>
-                                    </ListGroup>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="medium">
-                                    <ListGroup>
-                                        <ListGroup.Item>Example entry 1 (Medium)</ListGroup.Item>
-                                        <ListGroup.Item>Example entry 2 (Medium)</ListGroup.Item>
-                                        <ListGroup.Item>Example entry 3 (Medium)</ListGroup.Item>
-                                    </ListGroup>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="long">
-                                    <ListGroup>
-                                        <ListGroup.Item>Example entry 1 (Long)</ListGroup.Item>
-                                        <ListGroup.Item>Example entry 2 (Long)</ListGroup.Item>
-                                        <ListGroup.Item>Example entry 3 (Long)</ListGroup.Item>
-                                    </ListGroup>
-                                </Tab.Pane>
-                            </Tab.Content>
-                        </Card.Body>
-                    </Tab.Container>
-                </Card>
-            </Container>
+            <br></br>
+            <TopItemsCard startIndex={3} reducer={artists} getAction={getArtistsForUser} loading={artists.loading} error={artists.errorMsg} />
         </Container>   
     )
 }

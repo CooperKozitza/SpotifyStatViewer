@@ -70,34 +70,36 @@ const Podium = (props) => {
         )
     
     return (
-        <Container style={{ height: '300px', maxWidth: '400px' }}>
-            <Row className="h-100 g-2 p-2">
-                <Col xs={4} className="g-2 h-100 d-flex flex-column justify-content-end">
-                    <Row>
-                        <Image src={items[2].images[0].url} alt="Podium Item 3" />
-                    </Row>
-                    <Row className="justify-content-center text-center bg-dark text-light h-30 rounded m-2">
-                        {items[2].name}<h1> 3</h1>
-                    </Row>
-                </Col>
-                <Col xs={4} className="g-2 h-100 d-flex flex-column justify-content-end">
-                    <Row>
-                        <Image src={items[0].images[0].url} alt="Podium Item 1" />                    
-                    </Row>
-                    <Row className="justify-content-center text-center bg-dark text-light h-50 rounded m-2">
-                        {items[0].name}<h1> 1</h1>
-                    </Row>
-                </Col>
-                <Col xs={4} className="g-2 h-100 d-flex flex-column justify-content-end">
-                    <Row>
-                        <Image src={items[1].images[0].url} alt="Podium Item 2" />                    
-                    </Row>
-                    <Row className="justify-content-center text-center bg-dark text-light h-70 rounded m-2">
-                        {items[1].name}<h1> 2</h1>
-                    </Row>
-                </Col>
-            </Row>
-        </Container>
+        <Row className="bg-secondary p-2 m-4 rounded">
+            <Container style={{ height: '300px', maxWidth: '400px' }}>
+                <Row className="h-100 g-2 p-2">
+                    <Col xs={4} className="g-2 h-100 d-flex flex-column justify-content-end">
+                        <Row>
+                            <Image roundedCircle src={items[2].images[0].url} alt="Podium Item 3" />
+                        </Row>
+                        <Row className="justify-content-center text-center bg-dark text-light h-30 rounded m-2 py-2">
+                            {items[2].name}<h1> 3</h1>
+                        </Row>
+                    </Col>
+                    <Col xs={4} className="g-2 h-100 d-flex flex-column justify-content-end">
+                        <Row>
+                            <Image roundedCircle src={items[0].images[0].url} alt="Podium Item 1" />                    
+                        </Row>
+                        <Row className="justify-content-center text-center bg-dark text-light h-50 rounded m-2 py-2">
+                            {items[0].name}<h1> 1</h1>
+                        </Row>
+                    </Col>
+                    <Col xs={4} className="g-2 h-100 d-flex flex-column justify-content-end">
+                        <Row>
+                            <Image roundedCircle src={items[1].images[0].url} alt="Podium Item 2" />                    
+                        </Row>
+                        <Row className="justify-content-center text-center bg-dark text-light h-70 rounded m-2 py-2">
+                            {items[1].name}<h1> 2</h1>
+                        </Row>
+                    </Col>
+                </Row>
+            </Container>
+        </Row>
     )
 }
 
