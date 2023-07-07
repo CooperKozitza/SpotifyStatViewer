@@ -11,7 +11,7 @@ const RecentlyPlayed = () => {
     useEffect(() => {
         if (recents.loading == false && recents.items.length == 0 && loggedIn)
             dispatch(getRecentlyPlayedTracksForUser())
-    }, [recents.loading, recents.items.length, loggedIn])
+    }, [recents.items.length, loggedIn])
 
     if (loggedIn) {
         if (recents.loading) {

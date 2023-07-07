@@ -30,9 +30,11 @@ const TopArtists = () => {
                     <h1>Top Artists</h1>
                 </Col>
             </Row>
-            <Podium items={artists.items} />
+            {artists.items.length > 3
+            ? <Podium items={artists.items} />
+            : null}
             <br></br>
-            <TopItemsCard startIndex={3} reducer={artists} getAction={getArtistsForUser} loading={artists.loading} error={artists.errorMsg} />
+            <TopItemsCard startIndex={artists.items.length > 3 ? 3 : 0} reducer={artists} getAction={getArtistsForUser} loading={artists.loading} error={artists.errorMsg} />
         </Container>   
     )
 }

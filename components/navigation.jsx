@@ -23,9 +23,9 @@ const Navigation = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Container>
                         <Nav className="mr-auto d-lg-flex align-items-center">
-                            <Nav.Link onClick={() => router.push("/topAlbums")}>Top Albums</Nav.Link>
+                            <Nav.Link onClick={() => router.push("/topAlbums")} disabled>Top Albums</Nav.Link>
                             <Nav.Link onClick={() => router.push("/topArtists")}>Top Artists</Nav.Link>
-                            <Nav.Link onClick={() => router.push("/topSongs")}>Top Songs</Nav.Link>
+                            <Nav.Link onClick={() => router.push("/topSongs")} disabled>Top Songs</Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar.Collapse>

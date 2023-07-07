@@ -26,47 +26,49 @@ const Podium = (props) => {
     
     if (horizontalView)
         return (
-            <Container style={{maxHeight: '400px'}}>
-                <Row className="g-2 p-2 justify-content-start">
-                    <Col className="p-2 rounded bg-dark text-light text-end" xs={8}>
-                        <Row className="align-items-center" >
-                            <Col>
-                                <h1>1</h1>
-                                {items[0].name}
-                            </Col>                         
-                        </Row>
-                    </Col>
-                    <Col xs={4}>
-                        <Image fluid src={items[0].images[0].url} alt="Podium Item 1" />
-                    </Col>                    
-                </Row>
-                <Row className="g-2 p-2 justify-content-start">
-                    <Col className="p-2 rounded bg-dark text-light text-end" xs={6}>
-                        <Row className="align-items-center">
-                            <Col>
-                                <h1>2</h1>
-                                {items[1].name}
-                            </Col>
-                        </Row>
-                    </Col>
-                    <Col xs={4}>
-                        <Image fluid src={items[1].images[0].url} alt="Podium Item 2" />
-                    </Col>
-                </Row>
-                <Row className="g-2 p-2 justify-content-start">
-                    <Col className="p-2 rounded bg-dark text-light text-end" xs={4}>
-                        <Row className="align-items-center">
-                            <Col>
-                                <h1>3</h1>
-                                {items[2].name}
-                            </Col>
-                        </Row>
-                    </Col>
-                    <Col xs={4}>
-                        <Image fluid src={items[2].images[0].url} alt="Podium Item 3" />
-                    </Col>
-                </Row>
-            </Container>
+            <Row className="bg-secondary p-2 m-4 rounded">
+                <Container style={{maxHeight: '400px'}}>
+                    <Row className="g-2 p-2 justify-content-start align-items-center">
+                        <Col className="p-2 rounded bg-dark text-light text-end" xs={8}>
+                            <Row className="align-items-center" >
+                                <Col>
+                                    <h1>1</h1>
+                                    {items[0].name}
+                                </Col>                         
+                            </Row>
+                        </Col>
+                        <Col xs={4}>
+                            <Image fluid roundedCircle className="m-2" src={items[0].images[0].url} alt="Podium Item 1" />
+                        </Col>                    
+                    </Row>
+                    <Row className="g-2 p-2 justify-content-start align-items-center">
+                        <Col className="p-2 rounded bg-dark text-light text-end" xs={6}>
+                            <Row className="align-items-center">
+                                <Col>
+                                    <h1>2</h1>
+                                    {items[1].name}
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col xs={4}>
+                            <Image fluid roundedCircle className="m-2" src={items[1].images[0].url} alt="Podium Item 2" />
+                        </Col>
+                    </Row>
+                    <Row className="g-2 p-2 justify-content-start align-items-center">
+                        <Col className="p-2 rounded bg-dark text-light text-end" xs={4}>
+                            <Row className="align-items-center">
+                                <Col>
+                                    <h1>3</h1>
+                                    {items[2].name}
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col xs={4}>
+                            <Image fluid roundedCircle className="m-2" src={items[2].images[0].url} alt="Podium Item 3" />
+                        </Col>
+                    </Row>
+                </Container>
+            </Row>
         )
     
     return (

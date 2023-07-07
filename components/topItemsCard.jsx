@@ -1,4 +1,4 @@
-const { useState } = require("react")
+const { useState, useEffect } = require("react")
 const { Card, Nav, Tabs, Tab, ListGroup, Spinner, Row, Col, Image } = require("react-bootstrap")
 const { useDispatch } = require("react-redux")
 
@@ -8,57 +8,11 @@ const TopItemsCard = (props) => {
 
     const dispatch = useDispatch();
 
-    if (loading) {
-        return (
-            <Card>
-                <Tab.Container activeKey={timePeriod}>
-                    <Nav variant="tabs">
-                        <Nav.Item>
-                            <Nav.Link eventKey={'short_term'} disabled>This Month</Nav.Link>                            
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey={'medium_term'} disabled>Last Six Months</Nav.Link>                            
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey={'long_term'} disabled>All Time</Nav.Link>                            
-                        </Nav.Item>
-                    </Nav>
-                </Tab.Container>
-                <Card.Body className="d-flex justify-content-center align-items-center">
-                    <Spinner />
-                </Card.Body>
-            </Card>
-        )
-    }
-
-    if (props.error != '') {
-        return (
-            <Card>
-                <Tab.Container activeKey={timePeriod}>
-                    <Nav variant="tabs">
-                        <Nav.Item>
-                            <Nav.Link eventKey={'short_term'} disabled>This Month</Nav.Link>                            
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey={'medium_term'} disabled>Last Six Months</Nav.Link>                            
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey={'long_term'} disabled>All Time</Nav.Link>                            
-                        </Nav.Item>
-                    </Nav>
-                </Tab.Container>
-                <Card.Body className="d-flex justify-content-center align-items-center">
-                    <h3>Error</h3>
-                    <p>{error}</p>
-                </Card.Body>
-            </Card>
-        )
-    }
-
     const handleTabChange = tab => {
         setTimePeriod(tab)
         dispatch(getAction(tab))
-        console.log(tab)
+        console.log('timePeriod: ' + timePeriod)
+        console.log('tab: ' + tab)
     }
 
     const renderListItems = () => (

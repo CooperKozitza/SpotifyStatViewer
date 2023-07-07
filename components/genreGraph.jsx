@@ -11,7 +11,7 @@ const GenreGraph = () => {
     useEffect(() => {
         if (artists.loading == false && artists.items.length == 0 && loggedIn)
             dispatch(getArtistsForUser())
-    }, [artists.loading, artists.items.length, loggedIn])
+    }, [artists.items.length, loggedIn])
 
 
 
