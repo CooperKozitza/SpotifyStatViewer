@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
-import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";

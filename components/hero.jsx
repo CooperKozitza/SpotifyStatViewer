@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import LoginButton from "./login";
@@ -17,9 +15,6 @@ const HeroSection = () => {
                                 <LoginButton>Login With Spotify</LoginButton>
                             </span>
                         </Col>
-                    </Row>
-                    <Row className="d-flex justify-content-center py-4" style={{color: "white"}}>
-                        <FontAwesomeIcon icon={ faAngleDown } />
                     </Row>
                 </Container>
             </Row>
