@@ -1,10 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { store, persistor } from "../app/store";
 import RootLayout from "../app/layout";
 import { PersistGate } from "redux-persist/integration/react";
 import { Container, Spinner } from "react-bootstrap";
+
+import "../app/globals.css"
 
 export const metadata = {
   title: 'Create Next App',
