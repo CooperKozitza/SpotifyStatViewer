@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
 			<body className={inter.className}>
 				<Navigation />
 				<Container className="container" style={{minHeight: '95vh', paddingTop: '60px'}}>
-					<Row style={{margin: '20px 0'}}>
+					<Row style={{margin: '20px 0', height: '100%'}}>
 						{children}
 					</Row>
 				</Container>
