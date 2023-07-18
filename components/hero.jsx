@@ -13,7 +13,7 @@ const HeroSection = () => {
             position: "absolute",
             top: '0',
             left: '0',
-            marginTop: '60px',
+            marginTop: '50px',
         }} className="d-flex flex-column justify-content-end align-items-start">
             <Row className="align mx-auto" style={{maxWidth: "960px"}}> 
                 <Col md={7} className="p-4 text-light bg-dark rounded">
