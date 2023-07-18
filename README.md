@@ -1,5 +1,7 @@
 # Spotify Stat Viewer
-Spotify Stat Viewer is a Next.js web application that allows users to view their Spotify listening statistics, including their top artists and songs​​.
+Spotify Stat Viewer is a Next.js web application that allows users to view their Spotify listening statistics, including their top artists and songs​.
+
+The app is deployed on Vercel, but the app is still in development. Because of this, users need to be individually added to the Spotify user management before they are able to log in. If you would like to try the app, please email me with your full name and the email you use with Spotify. You can find my email in my account bio.
 
 ## Getting Started
 1. Clone the repository to your local machine.
