@@ -2,9 +2,14 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import LoginButton from "./login";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const HeroSection = () => {
+    let loggedIn = useSelector(state => state.user.loggedIn);
+    let router = useRouter();
+
     return (
         <Container style={{
             height: "50vh",
@@ -20,7 +25,10 @@ const HeroSection = () => {
                     <h1>Unveil Your Music Taste</h1>
                     <p>Connect with Spotify and explore your listening statistics, top tracks, artists, albums, and get tailored recommendations.</p>
                     <span className="d-flex justify-content-center justify-content-sm-start">
-                        <LoginButton>Login With Spotify</LoginButton>
+                        { !loggedIn 
+                            ? <LoginButton>Login With Spotify</LoginButton>
+                            : <a onClick={() => router.push('/dashboard')}>Go to your dashboard <FontAwesomeIcon icon={faCaretRight} /></a>
+                        }
                     </span>
                 </Col>
             </Row>

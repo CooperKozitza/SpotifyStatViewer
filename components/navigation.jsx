@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { useRouter } from 'next/router'
@@ -17,14 +16,13 @@ const Navigation = () => {
         <Navbar bg="dark" variant="dark" expand="md" fixed="top">
             <Container>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" /> 
-                <Navbar.Brand className="mx-auto" onClick={() => router.push("/")}>Spotify Stat Viewer</Navbar.Brand>
+                <Navbar.Brand className="justify-self-center" onClick={() => router.push("/")}>Spotify Stat Viewer</Navbar.Brand>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Container>
                         <Nav className="mr-auto d-lg-flex align-items-center">
                             <Nav.Link onClick={() => router.push("/topAlbums")} disabled>Top Albums</Nav.Link>
                             <Nav.Link onClick={() => router.push("/topArtists")}>Top Artists</Nav.Link>
-                            <Nav.Link onClick={() => router.push("/topSongs")} disabled>Top Songs</Nav.Link>
-                            <Nav.Link onClick={() => router.push("/dashboard")} disabled={!loggedIn}>Dashboard</Nav.Link>
+                            <Nav.Link onClick={() => router.push("/topTracks")} disabled>Top Tracks</Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar.Collapse>

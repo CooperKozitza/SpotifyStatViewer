@@ -3,16 +3,18 @@ const { Card, Nav, Tabs, Tab, ListGroup, Spinner, Row, Col, Image } = require("r
 const { useDispatch } = require("react-redux")
 
 const TopItemsCard = (props) => {
-    const { startIndex, reducer, getAction, loading } = props
+    const { startIndex, reducer, getAction } = props
     const [timePeriod, setTimePeriod] = useState('medium_term')
+
+    useEffect(() => {
+        console.log("time period: " + timePeriod);
+    }, [timePeriod]);
 
     const dispatch = useDispatch();
 
     const handleTabChange = tab => {
         setTimePeriod(tab)
         dispatch(getAction(tab))
-        console.log('timePeriod: ' + timePeriod)
-        console.log('tab: ' + tab)
     }
 
     const renderListItems = () => (
@@ -23,10 +25,10 @@ const TopItemsCard = (props) => {
                 <ListGroup.Item key={index}>
                     <Row className="align-items-center">
                         <Col xs={2} md={1} className="text-center">
-                            <h2>{index + 1}.</h2>
+                            <h3>{index + 1}.</h3>
                         </Col>
                         <Col xs={2} className="p-0 p-md-2">
-                            <Image fluid rounded src={item.images[0].url} alt="album art"/>
+                            <Image fluid rounded src={item.images[0].url || null} alt="album art"/>
                         </Col>
                         <Col xs={8}>
                             {item.name}

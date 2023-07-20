@@ -1,4 +1,4 @@
-const { GET_TOKEN, SET_TOKEN, TOKEN_ERROR, LOGOUT_AUTH } = require("./authTypes")
+import { SET_TOKEN, TOKEN_ERROR, LOGOUT_AUTH } from './authTypes' 
 
 const initialState = {
     loading: false,
