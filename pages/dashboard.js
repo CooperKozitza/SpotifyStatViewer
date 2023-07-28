@@ -38,8 +38,10 @@ const Dashboard = () => {
                         <Card style={{height: '100%'}}>  
                             <Card.Header>Your Profile:</Card.Header>
                             <Card.Body className="d-flex align-items-center flex-column">
-                                {user.user.images[0].url == null ? null :
-                                <Card.Img src={user.user.images[0].url} className={styles.avatar} />}
+                                <Card.Img 
+                                    src={user.user.images[0].url || "https://ui-avatars.com/api/?name=" + user.user.display_name || null } 
+                                    className={styles.avatar} 
+                                />
                                 <Card.Title>{user.user.display_name || 'No Username Found'}</Card.Title>
                                 <Card.Subtitle>
                                     <p className="text-muted">{user.user.email || 'No Email Found'}</p>
